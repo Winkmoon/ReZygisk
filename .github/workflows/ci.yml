@@ -37,8 +37,8 @@ jobs:
         if: success()
         id: prepareArtifact
         run: |
-          releaseName=`ls module/build/outputs/release/ReZygisk-v*-release.zip | awk -F '(/|.zip)' '{print $5}'` && echo "releaseName=$releaseName" >> $GITHUB_OUTPUT
-          debugName=`ls module/build/outputs/release/ReZygisk-v*-debug.zip | awk -F '(/|.zip)' '{print $5}'` && echo "debugName=$debugName" >> $GITHUB_OUTPUT
+          releaseName=`ls module/build/outputs/release/*-release.zip | awk -F '(/|.zip)' '{print $5}'` && echo "releaseName=$releaseName" >> $GITHUB_OUTPUT
+          debugName=`ls module/build/outputs/release/*-debug.zip | awk -F '(/|.zip)' '{print $5}'` && echo "debugName=$debugName" >> $GITHUB_OUTPUT
           unzip module/build/outputs/release/*-release.zip -d zksu-release
           unzip module/build/outputs/release/*-debug.zip -d zksu-debug
 
